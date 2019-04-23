@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
-import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
-import Content from './components/Content/Content';
-import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+import { Content, Footer, Header, Home, Login, Nav } from './components';
+import { topics, articles, comments } from './data';
 import * as api from './api';
+
+// https://bc-nc-news.herokuapp.com/api
 
 class App extends Component {
   state = {
-    data: [],
+    data: {
+      topics,
+      articles,
+      comments
+    },
     loading: true
   };
   render() {
     const { data } = this.state;
+    console.log(data);
     return (
       <main className="App">
         <Home />
@@ -28,13 +31,13 @@ class App extends Component {
     );
   }
 
-  componentDidMount = async () => {
-    const data = [];
-    this.setState({
-      data,
-      loading: false
-    });
-  };
+  // componentDidMount = async () => {
+  //   const data = [];
+  //   this.setState({
+  //     data,
+  //     loading: false
+  //   });
+  // };
 }
 
 export default App;

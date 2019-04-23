@@ -5,10 +5,12 @@ import Subitem from './Subitem/Subitem';
 const Subcontent = () => {
   return (
     <main className="subcontent">
-      <h2 className="subcont-head">Subcontent Header</h2>
-      <Subitem />
-      <Subitem />
-      <Subitem />
+      <h2 className="subcont-head flex-center">Subcontent Header</h2>
+      <div className="subcont=list">
+        <Subitem />
+        <Subitem />
+        <Subitem />
+      </div>
     </main>
   );
 };

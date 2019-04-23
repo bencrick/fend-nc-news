@@ -5,7 +5,7 @@ import { Link } from '@reach/router';
 const Nav = () => {
   return (
     <main className="nav">
-      <table align="center" class="nav-menu">
+      <table align="center" className="nav-menu">
         <thead>
           <tr>
             <th>MENU</th>
@@ -24,10 +24,10 @@ const Nav = () => {
           </tr>
         </tbody>
       </table>
-      <table align="center" class="nav-list">
+      <table align="center" className="nav-list">
         <thead>
           <tr>
-            <th colspan="2">TOPICS/ARTICLES</th>
+            <th colSpan="2">TOPICS/ARTICLES</th>
           </tr>
         </thead>
         <tbody>
