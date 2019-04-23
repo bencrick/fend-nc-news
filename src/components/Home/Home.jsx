@@ -1,10 +1,13 @@
 import React from 'react';
-import './Home.css'
+import './Home.css';
 
 const Home = props => {
   return (
     <main className="home">
-      <h1>Home</h1>
+      <img
+        src="https://freeiconshop.com/wp-content/uploads/edd/home-outline.png"
+        alt="Home logo"
+      />
     </main>
   );
 };
