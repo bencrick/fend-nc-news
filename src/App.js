@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Router } from '@reach/router';
+import Header from './components/Header/Header';
+import Nav from './components/Nav/Nav';
+import Content from './components/Content/Content';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import * as api from './api';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    data: [],
+    loading: true
+  };
+  render() {
+    const { data } = this.state;
+    return (
+      <main className="App">
+        <Home />
+        <Header />
+        <Login />
+        <Nav />
+        <Content />
+        <Footer />
+      </main>
+    );
+  }
+
+  componentDidMount = async () => {
+    const data = [];
+    this.setState({
+      data,
+      loading: false
+    });
+  };
 }
 
 export default App;
