@@ -1,5 +1,4 @@
-export default {
-  "comments": [
+export default [
     {
       "comment_id": 44,
       "votes": 4,
@@ -57,4 +56,3 @@ export default {
       "body": "Sit sequi odio suscipit. Iure quisquam qui alias distinctio eos officia enim aut sit. Corrupti ut praesentium ut iste earum itaque qui. Dolores in ab rerum consequuntur. Id ab aliquid autem dolore."
     }
   ]
-}

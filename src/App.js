@@ -14,7 +14,7 @@ class App extends Component {
     path: '/'
   };
   render() {
-    const { topics, articles, comments, path } = this.state.data;
+    const { topics, articles, comments } = this.state.data;
     return (
       <main className="App">
         <Home />
@@ -22,7 +22,7 @@ class App extends Component {
         <Login />
         <Nav topics={topics} articles={articles} setContent={this.setContent} />
         <Content
-          path={path}
+          path={this.state.path}
           topics={topics}
           articles={articles}
           comments={comments}
@@ -50,10 +50,6 @@ class App extends Component {
       path
     });
   };
-}
-
-function capitalise(str) {
-  return `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
 }
 
 export default App;

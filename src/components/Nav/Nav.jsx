@@ -12,8 +12,8 @@ class Nav extends Component {
     const { setContent } = this.props;
     let topics, articles, itemList, headerProp, navList, pathStart, pathEndProp;
     if (!!this.props.topics && !!this.props.articles) {
-      topics = this.props.topics.topics;
-      articles = this.props.articles.articles;
+      topics = this.props.topics;
+      articles = this.props.articles;
     } else {
       topics = [];
       articles = [];

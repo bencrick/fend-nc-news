@@ -1,5 +1,4 @@
-export default {
-  topics: [
+export default [
     {
       slug: 'coding',
       description: 'Code is love, code is life'
@@ -13,4 +12,3 @@ export default {
       description: 'Hey good looking, what you got cooking?'
     }
   ]
-};

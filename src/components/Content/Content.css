@@ -4,7 +4,7 @@
   border: solid 1px rgba(0, 0, 255, 1);
   background-color: rgba(0, 0, 255, 0.1);
   display: grid;
-  grid-template-columns: 7fr 1fr 3fr;
+  grid-template-columns: 7fr 1fr 7fr;
   grid-template-rows: 1fr 8fr 1fr;
   grid-template-areas:
     'cont-head cont-vote subcontent'

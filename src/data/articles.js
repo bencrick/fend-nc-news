@@ -1,5 +1,4 @@
-export default {
-  "articles": [
+export default [
     {
       "author": "weegembump",
       "title": "Seafood substitutions are increasing",
@@ -361,4 +360,3 @@ export default {
       "comment_count": "7"
     }
   ]
-}
