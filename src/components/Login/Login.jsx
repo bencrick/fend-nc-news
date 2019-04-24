@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Login = props => {
+const Login = ({ handleSubmit }) => {
   return (
-    <main className="login">
-      <h1>Login</h1>
+    <main className="login flex-center">
+      <form onSubmit={handleSubmit} className="flex-center">
+        <label for="username">Username:</label>
+        <input id="username" placeholder="username" />
+        <button type="submit">Log in</button>
+      </form>
     </main>
   );
 };
