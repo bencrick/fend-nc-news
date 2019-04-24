@@ -4,15 +4,12 @@ import Subitem from './Subitem/Subitem';
 
 // select article-specific comments
 const Subcontent = ({ subItems, path }) => {
-  let subHeading, headProp, idProp, subPath;
+  let subHeading, headProp, idProp
   let item = true;
-  let linking = false;
   if (path.includes('articles/?topic=')) {
     subHeading = 'Articles';
     headProp = 'title';
     idProp = 'article_id';
-    linking = true;
-    subPath = '';
   } else if (/^articles\/\d+$/.test(path)) {
     subHeading = 'Comments';
     headProp = 'author';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
 import { Content, Footer, Header, Home, Login, Nav } from './components';
-import { topics, articles, comments } from './data';
+import { topics, articles } from './data';
 import * as api from './api';
 
 // https://bc-nc-news.herokuapp.com/api
@@ -14,34 +14,30 @@ class App extends Component {
     path: '/'
   };
   render() {
-    const { topics, articles, comments } = this.state.data;
+    const { topics, articles } = this.state.data;
     return (
       <main className="App">
         <Home />
         <Header />
-        <Login />
+        <Login handleSubmit={this.handleSubmit} />
         <Nav topics={topics} articles={articles} setContent={this.setContent} />
-        <Content
-          path={this.state.path}
-          topics={topics}
-          articles={articles}
-          comments={comments}
-        />
+        <Content path={this.state.path} topics={topics} articles={articles} />
         <Footer />
       </main>
     );
   }
 
-  componentDidMount = () => {
-    const data = {
-      topics,
-      articles,
-      comments
-    };
-    this.setState({
-      data,
+  componentDidMount = async () => {
+    const topics = await api.getTopics();
+    const articles = await api.getArticles();
+    await this.setState({
+      data: {
+        topics: topics,
+        articles: articles
+      },
       loading: false
     });
+    console.log(this.state);
   };
 
   setContent = event => {
@@ -49,6 +45,11 @@ class App extends Component {
     this.setState({
       path
     });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log('submitted', event.target.username.value);
   };
 }
 
