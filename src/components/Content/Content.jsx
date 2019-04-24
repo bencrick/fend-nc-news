@@ -13,11 +13,16 @@ class Content extends Component {
     console.log(this.props);
     let contTitle, contBody, subcont;
     if (path.includes('articles/?topic=')) {
-      let topicSlug = path.replace('articles/?topic=', '');
-      contTitle = `Topic - ${capitalise(topicSlug)}`;
-      contBody = topics.filter(t => t.slug === topicSlug)[0].description;
+      const topicSlug = path.replace('articles/?topic=', '');
+      const topic = topics.filter(t => t.slug === topicSlug)[0];
+      contTitle = `Topic - ${capitalise(topic.slug)}`;
+      contBody = topic.description;
     } else if (/^articles\/\d+$/.test(path)) {
-      console.log(path);
+      const articleID = Number(path.replace('articles/', ''));
+      const article = articles.filter(a => a.article_id === articleID)[0];
+      console.log(article);
+      contTitle = `Article - ${capitalise(article.title)}`;
+      contBody = article.body;
     } else {
       contTitle = 'Content Header';
       contBody = 'Content Body';
