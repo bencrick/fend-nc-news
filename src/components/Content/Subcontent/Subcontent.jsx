@@ -1,24 +1,29 @@
 import React from 'react';
 import './Subcontent.css';
 import Subitem from './Subitem/Subitem';
-import capitalise from '../../../utils/capitalise';
 
 // select article-specific comments
 const Subcontent = ({ subItems, path }) => {
-  let subHeading, headProp;
+  let subHeading, headProp, idProp, subPath;
   let item = true;
+  let linking = false;
   if (path.includes('articles/?topic=')) {
     subHeading = 'Articles';
     headProp = 'title';
+    idProp = 'article_id';
+    linking = true;
+    subPath = '';
   } else if (/^articles\/\d+$/.test(path)) {
     subHeading = 'Comments';
     headProp = 'author';
+    idProp = 'comment_id';
   } else {
     item = false;
   }
   const subElements = subItems.map(subItem => {
     return (
       <Subitem
+        id={item ? subItem[idProp] : ''}
         heading={item ? subItem[headProp] : ''}
         body={item ? subItem.body : ''}
         votes={item ? subItem.votes : ''}

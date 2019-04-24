@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Content.css';
-import { Router } from '@reach/router';
 import Subcontent from './Subcontent/Subcontent';
 import capitalise from '../../utils/capitalise';
 
@@ -11,8 +10,7 @@ class Content extends Component {
   };
   render() {
     const { topics, articles, comments, path } = this.props;
-    console.log(this.props);
-    let contTitle, contBody, subcont, subHeading, subItems;
+    let contTitle, contBody, subItems;
     if (path.includes('articles/?topic=')) {
       const topic = topics.filter(
         t => t.slug === path.replace('articles/?topic=', '')
@@ -24,7 +22,6 @@ class Content extends Component {
       const article = articles.filter(
         a => a.article_id === Number(path.replace('articles/', ''))
       )[0];
-      console.log(article);
       contTitle = `Article - ${capitalise(article.title)}`;
       contBody = article.body;
       // filter to correct comments

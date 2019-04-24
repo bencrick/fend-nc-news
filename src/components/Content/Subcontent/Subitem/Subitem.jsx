@@ -1,7 +1,7 @@
 import React from 'react';
 import './Subitem.css';
 
-const Subitem = ({ heading, body, votes }) => {
+const Subitem = ({ id, heading, body, votes }) => {
   return (
     <main className="subitem">
       <h4 className="subitem-head flex-center">{heading}</h4>
