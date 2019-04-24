@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Content.css';
 import { Router } from '@reach/router';
 import Subcontent from './Subcontent/Subcontent';
+import capitalise from '../../utils/capitalise';
 
 class Content extends Component {
   state = {
@@ -11,36 +12,38 @@ class Content extends Component {
   render() {
     const { topics, articles, comments, path } = this.props;
     console.log(this.props);
-    let contTitle, contBody, subcont;
+    let contTitle, contBody, subcont, subHeading, subItems;
     if (path.includes('articles/?topic=')) {
-      const topicSlug = path.replace('articles/?topic=', '');
-      const topic = topics.filter(t => t.slug === topicSlug)[0];
+      const topic = topics.filter(
+        t => t.slug === path.replace('articles/?topic=', '')
+      )[0];
       contTitle = `Topic - ${capitalise(topic.slug)}`;
       contBody = topic.description;
+      subItems = articles.filter(a => a.topic === topic.slug);
     } else if (/^articles\/\d+$/.test(path)) {
-      const articleID = Number(path.replace('articles/', ''));
-      const article = articles.filter(a => a.article_id === articleID)[0];
+      const article = articles.filter(
+        a => a.article_id === Number(path.replace('articles/', ''))
+      )[0];
       console.log(article);
       contTitle = `Article - ${capitalise(article.title)}`;
       contBody = article.body;
+      // filter to correct comments
+      subItems = comments;
     } else {
       contTitle = 'Content Header';
       contBody = 'Content Body';
+      subItems = [];
     }
     return (
       <main className="content">
-        <h2 className="cont-head flex-center">{contTitle}</h2>
+        <h3 className="cont-head flex-center">{contTitle}</h3>
         <div className="cont-vote flex-center">Content Vote</div>
-        <div className="cont-body">{contBody}</div>
+        <div className="cont-body text-block">{contBody}</div>
         <div className="cont-add flex-center">Content Add</div>
-        <Subcontent />
+        <Subcontent subItems={subItems} path={path} />
       </main>
     );
   }
-}
-
-function capitalise(str) {
-  return `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
 }
 
 export default Content;

@@ -27,6 +27,14 @@
   flex-direction: column;
 }
 
+.text-block {
+  display: block;
+  overflow-y: scroll;
+  text-align: justify;
+  padding: 2%;
+  box-sizing: border-box;
+}
+
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;

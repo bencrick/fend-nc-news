@@ -1,12 +1,12 @@
 import React from 'react';
 import './Subitem.css';
 
-const Subitem = () => {
+const Subitem = ({ heading, body, votes }) => {
   return (
     <main className="subitem">
-      <h3 className="subitem-head flex-center">S-Header</h3>
-      <div className="subitem-vote">S-Vote</div>
-      <div className="subitem-body">S-Body </div>
+      <h4 className="subitem-head flex-center">{heading}</h4>
+      <div className="subitem-vote flex-center">{votes}</div>
+      <div className="subitem-body text-block">{body}</div>
     </main>
   );
 };
