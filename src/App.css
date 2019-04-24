@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 2fr 8fr 3fr;
   grid-template-rows: 1fr 8fr 1fr;
   grid-template-areas:
     'home header login'
@@ -16,6 +16,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.flex-top-center {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  flex-direction: column;
 }
 
 /* .App-header {

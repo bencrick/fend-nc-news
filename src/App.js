@@ -9,35 +9,51 @@ import * as api from './api';
 
 class App extends Component {
   state = {
-    data: {
-      topics,
-      articles,
-      comments
-    },
-    loading: true
+    data: {},
+    loading: true,
+    path: '/'
   };
   render() {
-    const { data } = this.state;
-    console.log(data);
+    const { topics, articles, comments, path } = this.state.data;
     return (
       <main className="App">
         <Home />
         <Header />
         <Login />
-        <Nav />
-        <Content />
+        <Nav topics={topics} articles={articles} setContent={this.setContent} />
+        <Content
+          path={path}
+          topics={topics}
+          articles={articles}
+          comments={comments}
+        />
         <Footer />
       </main>
     );
   }
 
-  // componentDidMount = async () => {
-  //   const data = [];
-  //   this.setState({
-  //     data,
-  //     loading: false
-  //   });
-  // };
+  componentDidMount = () => {
+    const data = {
+      topics,
+      articles,
+      comments
+    };
+    this.setState({
+      data,
+      loading: false
+    });
+  };
+
+  setContent = event => {
+    const path = event.target.href.replace(/^http.*:\d+\//, '');
+    this.setState({
+      path
+    });
+  };
+}
+
+function capitalise(str) {
+  return `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
 }
 
 export default App;
