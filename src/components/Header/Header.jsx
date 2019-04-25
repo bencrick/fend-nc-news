@@ -6,7 +6,6 @@ const Header = props => {
   return (
     <main className="header flex-center">
       <h1>NC News</h1>
-      <Vote start="55" />
     </main>
   );
 };

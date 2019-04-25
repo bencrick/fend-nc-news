@@ -14,15 +14,19 @@ class Vote extends Component {
           onClick={() => this.alterVote(1)}
           src="https://img.icons8.com/windows/32/000000/up.png"
           alt="up arrow"
-          className={`${this.state.modifier === 1 ? 'glow-green' : ''} up-arrow`}
+          className={`${
+            this.state.modifier === 1 ? 'glow-green' : ''
+          } up-arrow`}
         />
         <img
           onClick={() => this.alterVote(-1)}
           src="https://img.icons8.com/windows/32/000000/down.png"
           alt="down arrow"
-          className={`${this.state.modifier === -1 ? 'glow-red' : ''} down-arrow`}
+          className={`${
+            this.state.modifier === -1 ? 'glow-red' : ''
+          } down-arrow`}
         />
-        <span>{this.state.total}</span>
+        <span class="total-votes flex-center">{this.state.total}</span>
       </main>
     );
   }
