@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
-import { Content, Topiccontent, Footer, Header, Home, Login, Nav } from './components';
+import {
+  Content,
+  Topiccontent,
+  Footer,
+  Header,
+  Home,
+  Login,
+  Nav
+} from './components';
 import * as api from './api';
 
 // https://bc-nc-news.herokuapp.com/api
@@ -10,20 +18,23 @@ class App extends Component {
   state = {
     data: {},
     loading: true,
-    path: '/'
+    user: false
   };
   render() {
     const { topics, articles } = this.state.data;
-
     return (
       <main className="App">
         <Home />
         <Header />
-        <Login handleSubmit={this.handleSubmit} />
+        <Login logIn={this.logIn} logOut={this.logOut} user={this.state.user} />
         <Nav />
         <Router>
-          <Topiccontent path="/articles?topic=:topic" />
-          <Content path="/articles/:article_id" topics={topics} articles={articles} />
+          <Topiccontent path="/topics/:topic" />
+          <Content
+            path="/articles/:article_id"
+            topics={topics}
+            articles={articles}
+          />
         </Router>
         <Footer />
       </main>
@@ -42,9 +53,18 @@ class App extends Component {
     });
   };
 
-  handleSubmit = event => {
+  logIn = async event => {
     event.preventDefault();
-    console.log('submitted', event.target.username.value);
+    const user = await api.getUserByUsername(event.target.username.value);
+    await this.setState({
+      user
+    });
+  };
+
+  logOut = () => {
+    this.setState({
+      user: false
+    });
   };
 }
 

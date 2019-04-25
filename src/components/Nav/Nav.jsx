@@ -21,7 +21,7 @@ class Nav extends Component {
       return (
         <tr>
           <td>
-            <Link to={`articles/?topic=${topic.slug}`} onClick={this.setTopic}>
+            <Link to={`topics/${topic.slug}`} onClick={this.setTopic}>
               {capitalise(topic.slug)}
             </Link>
           </td>

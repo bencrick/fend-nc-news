@@ -1,10 +1,12 @@
 import React from 'react';
-import './Header.css'
+import './Header.css';
+import Vote from '../Vote/Vote.jsx';
 
 const Header = props => {
   return (
     <main className="header flex-center">
       <h1>NC News</h1>
+      <Vote start="55" />
     </main>
   );
 };

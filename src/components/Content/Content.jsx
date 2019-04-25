@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Content.css';
 import Subcontent from './Subcontent/Subcontent';
-import capitalise from '../../utils/capitalise';
 import * as api from '../../api';
 
 class Content extends Component {
