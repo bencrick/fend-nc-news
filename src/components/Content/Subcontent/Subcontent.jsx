@@ -1,38 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Subcontent.css';
 import Subitem from './Subitem/Subitem';
+import * as api from '../../../api'
 
 // select article-specific comments
-const Subcontent = ({ subItems, path }) => {
-  let subHeading, headProp, idProp
-  let item = true;
-  if (path.includes('articles/?topic=')) {
-    subHeading = 'Articles';
-    headProp = 'title';
-    idProp = 'article_id';
-  } else if (/^articles\/\d+$/.test(path)) {
-    subHeading = 'Comments';
-    headProp = 'author';
-    idProp = 'comment_id';
-  } else {
-    item = false;
-  }
-  const subElements = subItems.map(subItem => {
+class Subcontent extends Component {
+  state = {
+    comments: [],
+    loading: true
+  };
+  render() {
+    const { comments } = this.state
+    const subElements = comments.map(subItem => {
+      return (
+        <Subitem
+          id={subItem.comment_id}
+          heading={`${subItem.author} - ${subItem.created_at.slice(0,10).split('-').reverse().join('/')}`}
+          body={subItem.body}
+          votes={subItem.votes}
+        />
+      );
+    });
     return (
-      <Subitem
-        id={item ? subItem[idProp] : ''}
-        heading={item ? subItem[headProp] : ''}
-        body={item ? subItem.body : ''}
-        votes={item ? subItem.votes : ''}
-      />
+      <main className="subcontent">
+        <h3 className="subcont-head flex-center">Comments</h3>
+        <div className="subcont-list">{subElements}</div>
+      </main>
     );
-  });
-  return (
-    <main className="subcontent">
-      <h3 className="subcont-head flex-center">{subHeading}</h3>
-      <div className="subcont-list">{subElements}</div>
-    </main>
-  );
-};
+  }
+
+  componentDidUpdate = async prevProps => {
+    if (prevProps.article_id !== this.props.article_id) {
+      const comments = await api.getCommentsByArticleID(this.props.article_id);
+      await this.setState({
+        comments,
+        loading: false
+      });
+    }
+  };
+}
 
 export default Subcontent;

@@ -15,7 +15,15 @@ export const getArticles = async () => {
 };
 
 export const getArticleByID = async article_id => {
-  const { data } = await axios.get(`${BASE_URL}article/${article_id}`);
+  const { data } = await axios.get(`${BASE_URL}articles/${article_id}`);
   const { article } = data;
   return article;
+};
+
+export const getCommentsByArticleID = async article_id => {
+  const { data } = await axios.get(
+    `${BASE_URL}articles/${article_id}/comments`
+  );
+  const { comments } = data;
+  return comments;
 };

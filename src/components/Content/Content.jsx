@@ -2,45 +2,52 @@ import React, { Component } from 'react';
 import './Content.css';
 import Subcontent from './Subcontent/Subcontent';
 import capitalise from '../../utils/capitalise';
+import * as api from '../../api';
 
 class Content extends Component {
   state = {
-    display: 'topics',
+    article: {
+      title: '',
+      author: '',
+      article_id: '',
+      body: '',
+      topic: '',
+      created_at: '',
+      votes: '',
+      comment_count: ''
+    },
     loading: true
   };
   render() {
-    const { topics, articles, comments, path } = this.props;
-    let contTitle, contBody, subItems;
-    if (path.includes('articles/?topic=')) {
-      const topic = topics.filter(
-        t => t.slug === path.replace('articles/?topic=', '')
-      )[0];
-      contTitle = `Topic - ${capitalise(topic.slug)}`;
-      contBody = topic.description;
-      subItems = articles.filter(a => a.topic === topic.slug);
-    } else if (/^articles\/\d+$/.test(path)) {
-      const article = articles.filter(
-        a => a.article_id === Number(path.replace('articles/', ''))
-      )[0];
-      contTitle = `Article - ${capitalise(article.title)}`;
-      contBody = article.body;
-      // filter to correct comments
-      subItems = comments;
-    } else {
-      contTitle = 'Content Header';
-      contBody = 'Content Body';
-      subItems = [];
-    }
+    const { article } = this.state;
     return (
       <main className="content">
-        <h3 className="cont-head flex-center">{contTitle}</h3>
-        <div className="cont-vote flex-center">Content Vote</div>
-        <div className="cont-body text-block">{contBody}</div>
-        <div className="cont-add flex-center">Content Add</div>
-        <Subcontent subItems={subItems} path={path} />
+        <h3 className="cont-head flex-center">{article.title}</h3>
+        <div className="cont-vote flex-center">{article.votes}</div>
+        <div className="cont-body text-block">{article.body}</div>
+        {/* <div className="cont-add flex-center">Content Add</div> */}
+        <Subcontent article_id={article.article_id} />
       </main>
     );
   }
+
+  componentDidMount = async () => {
+    const article = await api.getArticleByID(this.props.article_id);
+    await this.setState({
+      article,
+      loading: false
+    });
+  };
+
+  componentDidUpdate = async prevProps => {
+    if (prevProps.article_id !== this.props.article_id) {
+      const article = await api.getArticleByID(this.props.article_id);
+      await this.setState({
+        article,
+        loading: false
+      });
+    }
+  };
 }
 
 export default Content;

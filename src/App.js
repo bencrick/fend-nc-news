@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
-import { Content, Footer, Header, Home, Login, Nav } from './components';
-import { topics, articles } from './data';
+import { Content, Topiccontent, Footer, Header, Home, Login, Nav } from './components';
 import * as api from './api';
 
 // https://bc-nc-news.herokuapp.com/api
@@ -15,13 +14,17 @@ class App extends Component {
   };
   render() {
     const { topics, articles } = this.state.data;
+
     return (
       <main className="App">
         <Home />
         <Header />
         <Login handleSubmit={this.handleSubmit} />
-        <Nav topics={topics} articles={articles} setContent={this.setContent} />
-        <Content path={this.state.path} topics={topics} articles={articles} />
+        <Nav />
+        <Router>
+          <Topiccontent path="/articles?topic=:topic" />
+          <Content path="/articles/:article_id" topics={topics} articles={articles} />
+        </Router>
         <Footer />
       </main>
     );
@@ -36,13 +39,6 @@ class App extends Component {
         articles: articles
       },
       loading: false
-    });
-  };
-
-  setContent = event => {
-    const path = event.target.href.replace(/^http.*:\d+\//, '');
-    this.setState({
-      path
     });
   };
 
