@@ -37,7 +37,6 @@ class App extends Component {
       },
       loading: false
     });
-    console.log(this.state);
   };
 
   setContent = event => {

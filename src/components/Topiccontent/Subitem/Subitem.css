@@ -1,0 +1,34 @@
+.subitem {
+  text-align: center;
+  grid-area: subitem;
+  border: solid 1px rgba(0, 0, 255, 1);
+  background-color: rgba(0, 0, 255, 0.1);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas:
+    'subitem-head subitem-vote'
+    'subitem-body subitem-body';
+  height: 6em;
+}
+
+.subitem-head {
+  grid-area: subitem-head;
+  border: solid 1px rgba(0, 0, 0, 1);
+  padding: 5%;
+  box-sizing: border-box;
+  height: 4em;
+  font-size: 0.75em;
+}
+
+.subitem-vote {
+  grid-area: subitem-vote;
+  border: solid 1px rgba(0, 0, 0, 1);
+}
+
+.subitem-body {
+  grid-area: subitem-body;
+  border: solid 1px rgba(0, 0, 0, 1);
+  height: 4em;
+  font-size: 0.75em;
+}
