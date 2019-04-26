@@ -8,7 +8,8 @@ import {
   Header,
   Home,
   Login,
-  Nav
+  Nav,
+  Allarticlewrapper
 } from './components';
 
 import * as api from './api';
@@ -19,13 +20,13 @@ class App extends Component {
   state = {
     data: {
       topics: [],
-      articles: [],
+      articles: []
     },
     loading: true,
     user: false
   };
   render() {
-    const { topics, articles } = this.state.data
+    const { topics, articles } = this.state.data;
     return (
       <main className="App">
         <Home />
@@ -33,8 +34,13 @@ class App extends Component {
         <Login logIn={this.logIn} logOut={this.logOut} user={this.state.user} />
         <Nav />
         <Router>
-          <Topicwrapper path="/topics/:topic" topics={topics} articles={articles} />
+          <Topicwrapper
+            path="/topics/:topic"
+            topics={topics}
+            articles={articles}
+          />
           <Articlewrapper path="/articles/:article_id" />
+          <Allarticlewrapper default articles={articles} />
         </Router>
         <Footer />
       </main>
