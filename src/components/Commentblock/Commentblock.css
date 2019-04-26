@@ -28,4 +28,5 @@
   display: block;
   overflow-y: scroll;
   height: 5em;
+  box-sizing: border-box;
 }
