@@ -10,7 +10,8 @@ import Topicwrapper from './Topicwrapper/Topicwrapper';
 import Articleblock from './Articleblock/Articleblock';
 import Commentblock from './Commentblock/Commentblock';
 import Itemlist from './Itemlist/Itemlist';
-import Allarticlewrapper from './Allarticlewrapper/Allarticlewrapper'
+import Allarticlewrapper from './Allarticlewrapper/Allarticlewrapper';
+import Errorwrapper from './Errorwrapper/Errorwrapper';
 
 export {
   Articlewrapper,
@@ -25,5 +26,6 @@ export {
   Home,
   Login,
   Nav,
-  Allarticlewrapper
+  Allarticlewrapper,
+  Errorwrapper
 };

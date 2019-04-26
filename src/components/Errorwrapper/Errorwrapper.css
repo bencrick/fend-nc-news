@@ -1,0 +1,5 @@
+.errorwrapper {
+  grid-area: wrapper;
+  outline: 1px solid black;
+  height: 80vh;
+}

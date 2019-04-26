@@ -21,7 +21,7 @@ class Nav extends Component {
       return (
         <tr>
           <td>
-            <Link to={`topics/${topic.slug}`} onClick={this.setTopic} >
+            <Link to={`topics/${topic.slug}`} onClick={this.setTopic}>
               {capitalise(topic.slug)}
             </Link>
           </td>
@@ -35,14 +35,19 @@ class Nav extends Component {
       showArticles = articles.filter(
         article => article.topic === selectedTopic.toLowerCase()
       );
-      articleMenuTitle = `Articles - ${selectedTopic}`;
+      articleMenuTitle = `${selectedTopic}\nArticles`;
     }
 
     const articleMenu = showArticles.map(article => {
       return (
         <tr className="article-row">
           <td>
-            <Link to={`articles/${article.article_id}`} className="article-link" >{article.title}</Link>
+            <Link
+              to={`articles/${article.article_id}`}
+              className="article-link"
+            >
+              {article.title}
+            </Link>
           </td>
           <td>{article.votes}</td>
         </tr>
@@ -60,7 +65,7 @@ class Nav extends Component {
           <tbody>
             <tr>
               <td>
-                <Link to={`articles`} onClick={this.setTopic}>
+                <Link to={'/'} onClick={this.setTopic}>
                   All
                 </Link>
               </td>

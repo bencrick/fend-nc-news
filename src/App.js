@@ -9,7 +9,8 @@ import {
   Home,
   Login,
   Nav,
-  Allarticlewrapper
+  Allarticlewrapper,
+  Errorwrapper
 } from './components';
 
 import * as api from './api';
@@ -40,7 +41,8 @@ class App extends Component {
             articles={articles}
           />
           <Articlewrapper path="/articles/:article_id" />
-          <Allarticlewrapper default articles={articles} />
+          <Allarticlewrapper path="/" articles={articles} />
+          <Errorwrapper default />
         </Router>
         <Footer />
       </main>
