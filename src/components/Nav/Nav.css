@@ -16,11 +16,8 @@
 
 .nav-table {
   grid-area: nav-table;
-  border: 1px solid black;
-  width: 100%;
   height: 63vh;
   padding: 5%;
-  box-sizing: border-box;
 }
 
 .nav-list {

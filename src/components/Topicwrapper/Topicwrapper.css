@@ -9,7 +9,6 @@
     'topicwrapperlist';
   border: 1px solid black;
   height: 80vh;
-  box-sizing: border-box;
 }
 
 .topicwrapper-head {

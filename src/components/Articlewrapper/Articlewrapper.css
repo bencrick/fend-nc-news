@@ -9,13 +9,11 @@
     'articlewrapperlist';
   border: 1px solid black;
   height: 80vh;
-  box-sizing: border-box;
 }
 
 .articlewrapper-head {
   grid-area: articlewrapperhead;
   border: 1px solid black;
-  box-sizing: border-box;
 }
 
 .articlewrapper-body {
@@ -23,7 +21,6 @@
   border: 1px solid black;
   display: block;
   overflow-y: scroll;
-  box-sizing: border-box;
 }
 
 .articlewrapper-list {

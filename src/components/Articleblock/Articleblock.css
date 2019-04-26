@@ -1,25 +1,25 @@
 .articleblock {
   display: grid;
-  grid-template-columns: 1fr 2em;
-  grid-template-rows: 2em 6em;
+  grid-template-columns: 1fr 3em;
+  grid-template-rows: 3em 6em;
   grid-template-areas:
     'articleblockhead articleblockvote'
     'articleblockbody articleblockbody';
   border: 1px solid black;
-  height: 8em;
+  height: 9em;
 }
 
 .articleblock-head {
   grid-area: articleblockhead;
   border: 1px solid black;
-  height: 2em;
+  height: 3em;
 }
 
 .articleblock-vote {
   grid-area: articleblockvote;
   border: 1px solid black;
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
 }
 
 .articleblock-body {
@@ -28,5 +28,4 @@
   display: block;
   overflow-y: scroll;
   height: 6em;
-  box-sizing: border-box;
 }

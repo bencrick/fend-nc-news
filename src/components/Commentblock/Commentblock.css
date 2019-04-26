@@ -1,25 +1,25 @@
 .commentblock {
   display: grid;
-  grid-template-columns: 1fr 2em;
-  grid-template-rows: 2em 3em;
+  grid-template-columns: 1fr 3em;
+  grid-template-rows: 3em 5em;
   grid-template-areas:
     'commentblockhead commentblockvote'
     'commentblockbody commentblockbody';
   border: 1px solid black;
-  height: 5em;
+  height: 8em;
 }
 
 .commentblock-head {
   grid-area: commentblockhead;
   border: 1px solid black;
-  height: 2em;
+  height: 3em;
 }
 
 .commentblock-vote {
   grid-area: commentblockvote;
   border: 1px solid black;
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
 }
 
 .commentblock-body {
@@ -27,6 +27,5 @@
   border: 1px solid black;
   display: block;
   overflow-y: scroll;
-  height: 3em;
-  box-sizing: border-box;
+  height: 5em;
 }

@@ -6,7 +6,6 @@
     'itemlisthead'
     'itemlistlist';
   border: 1px solid black;
-  box-sizing: border-box;
   height: 100%;
 }
 
@@ -20,5 +19,4 @@
   overflow-y: scroll;
   display: block;
   border: solid 1px black;
-  box-sizing: border-box;
 }
