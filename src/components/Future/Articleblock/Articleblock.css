@@ -1,0 +1,20 @@
+.articleblock {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas:
+    'head vote'
+    'body body';
+}
+
+.articleblock-head {
+  grid-area: head;
+}
+
+.articleblock-vote {
+  grid-area: vote;
+}
+
+.articleblock-body {
+  grid-area: body;
+}

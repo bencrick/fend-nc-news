@@ -1,0 +1,21 @@
+.topicwrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 8fr;
+  grid-template-areas:
+    'head'
+    'body'
+    'list';
+}
+
+.topicwrapper-head {
+  grid-area: head;
+}
+
+.topicwrapper-body {
+  grid-area: body;
+}
+
+.topicwrapper-list {
+  grid-area: list;
+}

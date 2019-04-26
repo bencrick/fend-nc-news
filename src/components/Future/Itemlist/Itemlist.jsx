@@ -24,9 +24,9 @@ const Itemlist = ({ items }) => {
   });
 
   return (
-    <main class="item-list">
-      <h3 className="list-heading">{listHeading}</h3>
-      <div className="scroll-list">{blocks}</div>
+    <main class="itemlist">
+      <h3 className="itemlist-head flex-center">{listHeading}</h3>
+      <div className="itemlist-list">{blocks}</div>
     </main>
   );
 };

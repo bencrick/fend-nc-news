@@ -14,8 +14,8 @@ class Topicwrapper extends Component {
     const { topic, topics, articles } = this.state;
     return (
       <main className="topicwrapper">
-        <h3 className="topicwrapper-head">{topic}</h3>
-        <div className="topicwrapper-body">
+        <h3 className="topicwrapper-head flex-center">{topic}</h3>
+        <div className="topicwrapper-body text-block">
           {topics.filter(t => t.slug === topic)[0].description}
         </div>
         <div className="topicwrapper-list">

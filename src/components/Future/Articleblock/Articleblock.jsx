@@ -7,12 +7,12 @@ const Articleblock = ({ id, heading, body, votes }) => {
   return (
     <main className="articleblock">
       <Link to={`articles/${id}`}>
-        <h4 className="articleblock-head">{heading}</h4>
+        <h4 className="articleblock-head flex-center">{heading}</h4>
       </Link>
       <div className="articleblock-vote">
         <Vote start={votes} />
       </div>
-      <div className="articleblock-body">{body}</div>
+      <div className="articleblock-body text-block">{body}</div>
     </main>
   );
 };
