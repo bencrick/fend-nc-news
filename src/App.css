@@ -33,3 +33,15 @@
   text-align: justify;
   padding: 1%;
 }
+
+* {
+  font-size: 2vw;
+}
+
+th, h3 {
+  font-size: 3vw;
+}
+
+h1, h2 {
+  font-size: 5vw;
+}

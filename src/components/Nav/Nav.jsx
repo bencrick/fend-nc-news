@@ -29,13 +29,13 @@ class Nav extends Component {
       );
     });
 
-    let articleMenuTitle = 'ARTICLES';
+    let articleMenuTitle = 'Articles';
     let showArticles = articles;
     if (selectedTopic !== 'All') {
       showArticles = articles.filter(
         article => article.topic === selectedTopic.toLowerCase()
       );
-      articleMenuTitle = `ARTICLES - ${selectedTopic}`;
+      articleMenuTitle = `Articles - ${selectedTopic}`;
     }
 
     const articleMenu = showArticles.map(article => {
@@ -54,7 +54,7 @@ class Nav extends Component {
         <table align="center" className="nav-menu flex-center">
           <thead>
             <tr>
-              <th>TOPICS</th>
+              <th>Topics</th>
             </tr>
           </thead>
           <tbody>
