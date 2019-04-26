@@ -5,26 +5,26 @@
   grid-template-areas:
     'articleblockhead articleblockvote'
     'articleblockbody articleblockbody';
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 9em;
 }
 
 .articleblock-head {
   grid-area: articleblockhead;
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 3em;
 }
 
 .articleblock-vote {
   grid-area: articleblockvote;
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 3em;
   width: 3em;
 }
 
 .articleblock-body {
   grid-area: articleblockbody;
-  border: 1px solid black;
+  outline: 1px solid black;
   display: block;
   overflow-y: scroll;
   height: 6em;

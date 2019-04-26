@@ -7,18 +7,18 @@
     'articlewrapperhead'
     'articlewrapperbody'
     'articlewrapperlist';
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 80vh;
 }
 
 .articlewrapper-head {
   grid-area: articlewrapperhead;
-  border: 1px solid black;
+  outline: 1px solid black;
 }
 
 .articlewrapper-body {
   grid-area: articlewrapperbody;
-  border: 1px solid black;
+  outline: 1px solid black;
   display: block;
   overflow-y: scroll;
 }

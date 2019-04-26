@@ -5,18 +5,18 @@
   grid-template-areas:
     'itemlisthead'
     'itemlistlist';
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 100%;
 }
 
 .itemlist-head {
   grid-area: itemlisthead;
-  border: solid 1px black;
+  outline: solid 1px black;
 }
 
 .itemlist-list {
   grid-area: itemlistlist;
   overflow-y: scroll;
   display: block;
-  border: solid 1px black;
+  outline: solid 1px black;
 }

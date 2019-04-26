@@ -1,6 +1,6 @@
 .nav {
   grid-area: left;
-  border: 1px solid black;
+  outline: 1px solid black;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr;
@@ -12,20 +12,19 @@
 
 .nav-menu {
   grid-area: nav-menu;
-  border: 1px solid black;
+  outline: 1px solid black;
 }
 
 .nav-table {
   grid-area: nav-table;
-  height: 63vh;
-  padding: 5%;
+  height: 100%;
 }
 
 .nav-list {
   grid-area: nav-list;
-  border: 1px solid black;
+  border-top: 1px solid black;
   display: block;
   overflow-y: scroll;
   text-align: left;
-  height: 50vh;
+  height: 54vh;
 }

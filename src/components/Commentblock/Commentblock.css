@@ -5,26 +5,26 @@
   grid-template-areas:
     'commentblockhead commentblockvote'
     'commentblockbody commentblockbody';
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 8em;
 }
 
 .commentblock-head {
   grid-area: commentblockhead;
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 3em;
 }
 
 .commentblock-vote {
   grid-area: commentblockvote;
-  border: 1px solid black;
+  outline: 1px solid black;
   height: 3em;
   width: 3em;
 }
 
 .commentblock-body {
   grid-area: commentblockbody;
-  border: 1px solid black;
+  outline: 1px solid black;
   display: block;
   overflow-y: scroll;
   height: 5em;

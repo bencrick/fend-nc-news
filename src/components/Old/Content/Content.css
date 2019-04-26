@@ -1,7 +1,7 @@
 .content {
   text-align: center;
   grid-area: content;
-  border: solid 1px rgba(0, 0, 255, 1);
+  outline: solid 1px rgba(0, 0, 255, 1);
   background-color: rgba(0, 0, 255, 0.1);
   display: grid;
   grid-template-columns: 7fr 1fr 7fr;
@@ -16,26 +16,26 @@
 
 .cont-head {
   grid-area: cont-head;
-  border: solid 1px rgba(0, 0, 0, 1);
+  outline: solid 1px rgba(0, 0, 0, 1);
   padding: 5%;
 }
 
 .cont-vote {
   grid-area: cont-vote;
-  border: solid 1px rgba(0, 0, 0, 1);
+  outline: solid 1px rgba(0, 0, 0, 1);
 }
 
 .cont-body {
   grid-area: cont-body;
-  border: solid 1px rgba(0, 0, 0, 1);
+  outline: solid 1px rgba(0, 0, 0, 1);
 }
 
 .cont-add {
   grid-area: cont-add;
-  border: solid 1px rgba(0, 0, 0, 1);
+  outline: solid 1px rgba(0, 0, 0, 1);
 }
 
 .subcontent {
   grid-area: subcontent;
-  border: solid 1px rgba(0, 0, 0, 1);
+  outline: solid 1px rgba(0, 0, 0, 1);
 }
