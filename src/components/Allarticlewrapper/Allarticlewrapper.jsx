@@ -4,10 +4,10 @@ import Itemlist from '../Itemlist/Itemlist';
 
 // select article-specific comments
 const Allarticlewrapper = props => {
-  const { articles } = props;
+  const { articles, user } = props;
   return (
     <main className="allarticlewrapper">
-        <Itemlist items={articles} />
+      <Itemlist items={articles} user={user} />
     </main>
   );
 };

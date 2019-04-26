@@ -28,20 +28,22 @@ class App extends Component {
   };
   render() {
     const { topics, articles } = this.state.data;
+    const { user } = this.state
     return (
       <main className="App">
         <Home />
         <Header />
         <Login logIn={this.logIn} logOut={this.logOut} user={this.state.user} />
         <Nav />
-        <Router>
+        <Router className="Router">
           <Topicwrapper
             path="/topics/:topic"
             topics={topics}
             articles={articles}
+            user={user}
           />
-          <Articlewrapper path="/articles/:article_id" />
-          <Allarticlewrapper path="/" articles={articles} />
+          <Articlewrapper path="/articles/:article_id" user={user} />
+          <Allarticlewrapper path="/" articles={articles} user={user} />
           <Errorwrapper default />
         </Router>
         <Footer />

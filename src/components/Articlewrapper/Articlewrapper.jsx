@@ -17,7 +17,7 @@ class Articlewrapper extends Component {
         <h3 className="articlewrapper-head flex-center">{article.title}</h3>
         <div className="articlewrapper-body text-block">{article.body}</div>
         <div className="articlewrapper-list">
-          <Itemlist items={comments} />
+          <Itemlist items={comments} user={this.props.user} />
         </div>
       </main>
     );

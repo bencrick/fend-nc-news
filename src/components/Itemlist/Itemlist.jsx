@@ -3,7 +3,7 @@ import Articleblock from '../Articleblock/Articleblock';
 import Commentblock from '../Commentblock/Commentblock';
 import './Itemlist.css';
 
-const Itemlist = ({ items }) => {
+const Itemlist = ({ items, user }) => {
   let headingProp, idProp, Block, listHeading, blocks;
   
   if (items.length > 0) {
@@ -26,6 +26,7 @@ const Itemlist = ({ items }) => {
           id={item[idProp]}
           body={item.body}
           votes={item.votes}
+          user={user}
         />
       );
     });

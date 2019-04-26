@@ -39,20 +39,24 @@ class Vote extends Component {
   };
 
   alterVote = n => {
-    const prevModifier = this.state.modifier;
-    const prevTotal = this.state.total;
-    let modifier, total;
-    if (prevModifier === 0) {
-      modifier = n;
-      total = prevTotal + n;
+    if (this.props.user) {
+      const prevModifier = this.state.modifier;
+      const prevTotal = this.state.total;
+      let modifier, total;
+      if (prevModifier === 0) {
+        modifier = n;
+        total = prevTotal + n;
+      } else {
+        modifier = 0;
+        total = prevTotal - prevModifier;
+      }
+      this.setState({
+        modifier,
+        total
+      });
     } else {
-      modifier = 0;
-      total = prevTotal - prevModifier;
+      alert('Please log in to enable voting');
     }
-    this.setState({
-      modifier,
-      total
-    });
   };
 }
 

@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: 2fr 7fr 1fr;
+  grid-template-columns: 2fr 6fr 2fr;
   grid-template-rows: 1fr 8fr 1fr;
   grid-template-areas:
     'home header login'
@@ -9,6 +9,9 @@
     'bottom bottom bottom';
   height: 100vh;
   width: 100vw;
+}
+.Router {
+  grid-area: wrapper;
 }
 
 .flex-center {

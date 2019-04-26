@@ -20,7 +20,7 @@ class Topicwrapper extends Component {
           {topics.length === 0 ? '' : topics.filter(t => t.slug === topic)[0].description}
         </div>
         <div className="topicwrapper-list">
-          <Itemlist items={articles} />
+          <Itemlist items={articles} user={this.props.user} />
         </div>
       </main>
     );
