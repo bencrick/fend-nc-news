@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-import Vote from '../Vote/Vote.jsx';
 
 const Header = props => {
   return (

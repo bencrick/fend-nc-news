@@ -34,6 +34,7 @@ class Content extends Component {
   }
 
   componentDidMount = async () => {
+    console.log(this.props)
     const article = await api.getArticleByID(this.props.article_id);
     await this.setState({
       article,
