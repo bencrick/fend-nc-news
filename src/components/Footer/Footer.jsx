@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = props => {
   return (
-    <main className="footer">
+    <main className="footer flex-center">
       <footer>Footer</footer>
     </main>
   );

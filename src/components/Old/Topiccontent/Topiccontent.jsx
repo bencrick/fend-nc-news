@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Topiccontent.css';
 import Subitem from './Subitem/Subitem';
-import * as api from '../../api';
+import * as api from '../../../api'
 
 // select topic-specific articles
 class Topiccontent extends Component {

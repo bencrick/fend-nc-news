@@ -1,6 +1,6 @@
 import React from 'react';
 import './Subitem.css';
-import Vote from '../../../Vote/Vote';
+import Vote from '../../../../Vote/Vote';
 
 const Subitem = ({ id, heading, body, votes }) => {
   return (

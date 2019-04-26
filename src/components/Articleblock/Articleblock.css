@@ -1,0 +1,32 @@
+.articleblock {
+  display: grid;
+  grid-template-columns: 1fr 2em;
+  grid-template-rows: 2em 6em;
+  grid-template-areas:
+    'articleblockhead articleblockvote'
+    'articleblockbody articleblockbody';
+  border: 1px solid black;
+  height: 8em;
+}
+
+.articleblock-head {
+  grid-area: articleblockhead;
+  border: 1px solid black;
+  height: 2em;
+}
+
+.articleblock-vote {
+  grid-area: articleblockvote;
+  border: 1px solid black;
+  height: 2em;
+  width: 2em;
+}
+
+.articleblock-body {
+  grid-area: articleblockbody;
+  border: 1px solid black;
+  display: block;
+  overflow-y: scroll;
+  height: 6em;
+  box-sizing: border-box;
+}

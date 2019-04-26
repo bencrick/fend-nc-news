@@ -25,11 +25,13 @@
 .up-arrow {
   grid-area: up-arrow;
   object-fit: scale-down;
+  height: 1em;
 }
 
 .down-arrow {
   grid-area: down-arrow;
   object-fit: scale-down;
+  height: 1em;
 }
 
 .total-votes {

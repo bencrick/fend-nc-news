@@ -14,10 +14,8 @@ class Articlewrapper extends Component {
     const { article, comments } = this.state;
     return (
       <main className="articlewrapper">
-        <h3 className="articlewrapper-head">{article.title}</h3>
-        <div className="articlewrapper-body">
-          {article.body}
-        </div>
+        <h3 className="articlewrapper-head flex-center">{article.title}</h3>
+        <div className="articlewrapper-body text-block">{article.body}</div>
         <div className="articlewrapper-list">
           <Itemlist items={comments} />
         </div>
@@ -26,9 +24,8 @@ class Articlewrapper extends Component {
   }
 
   componentDidMount = async () => {
-    const id = this.props.id;
-    const article = await api.getArticleByID(id)
-    const comments = await api.getCommentsByArticleID(id);
+    const article = await api.getArticleByID(this.props.article_id);
+    const comments = await api.getCommentsByArticleID(this.props.article_id);
     this.setState({
       article,
       comments,
@@ -37,10 +34,12 @@ class Articlewrapper extends Component {
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
-    const { article } = this.state;
-    if (prevState.article !== article) {
-      const comments = await api.getCommentsByArticle(article);
+    if (prevProps.article_id !== this.props.article_id) {
+      const article = await api.getArticleByID(this.props.article_id);
+      const comments = await api.getCommentsByArticleID(this.props.article_id);
+      console.log(this.props, '<--- props');
       await this.setState({
+        article,
         comments,
         loading: false
       });

@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import './Topicwrapper.css';
 import * as api from '../../api';
 import Itemlist from '../Itemlist/Itemlist';
+import capitalise from '../../utils/capitalise'
 
 // select topic-specific articles
 class Topicwrapper extends Component {
   state = {
-    topic: '',
     articles: [],
     loading: true
   };
   render() {
-    const { topic, topics, articles } = this.state;
+    const { articles } = this.state;
+    const { topic, topics } = this.props;
     return (
       <main className="topicwrapper">
-        <h3 className="topicwrapper-head flex-center">{topic}</h3>
+        <h3 className="topicwrapper-head flex-center">{capitalise(topic)}</h3>
         <div className="topicwrapper-body text-block">
-          {topics.filter(t => t.slug === topic)[0].description}
+          {topics.length === 0 ? '' : topics.filter(t => t.slug === topic)[0].description}
         </div>
         <div className="topicwrapper-list">
           <Itemlist items={articles} />
@@ -26,19 +27,16 @@ class Topicwrapper extends Component {
   }
 
   componentDidMount = async () => {
-    const topic = this.props.topic;
-    const articles = await api.getArticlesByTopic(topic);
+    const articles = await api.getArticlesByTopic(this.props.topic);
     this.setState({
-      topic,
       articles,
       loading: false
     });
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
-    const { topic } = this.state;
-    if (prevState.topic !== topic) {
-      const articles = await api.getArticlesByTopic(topic);
+    if (prevProps.topic !== this.props.topic) {
+      const articles = await api.getArticlesByTopic(this.props.topic);
       await this.setState({
         articles,
         loading: false

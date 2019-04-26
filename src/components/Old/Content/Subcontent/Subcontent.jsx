@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Subcontent.css';
 import Subitem from './Subitem/Subitem';
-import * as api from '../../../api'
+import * as api from '../../../../api'
 
 // select article-specific comments
 class Subcontent extends Component {

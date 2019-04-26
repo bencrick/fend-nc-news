@@ -35,7 +35,7 @@ class Nav extends Component {
       showArticles = articles.filter(
         article => article.topic === selectedTopic.toLowerCase()
       );
-      articleMenuTitle = `ARTICLES\n${selectedTopic}`;
+      articleMenuTitle = `ARTICLES - ${selectedTopic}`;
     }
 
     const articleMenu = showArticles.map(article => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Articleblock.css';
-import Vote from '../../../Vote/Vote';
+import Vote from '../Vote/Vote';
 import { Link } from '@reach/router';
 
 const Articleblock = ({ id, heading, body, votes }) => {

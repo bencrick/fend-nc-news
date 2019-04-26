@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Content.css';
 import Subcontent from './Subcontent/Subcontent';
-import * as api from '../../api';
-import Vote from '../Vote/Vote';
+import * as api from '../../../api';
+import Vote from '../../Vote/Vote';
 
 class Content extends Component {
   state = {
