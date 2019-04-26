@@ -36,7 +36,6 @@ export const getCommentsByArticleID = async article_id => {
 
 export const getUserByUsername = async username => {
   const { data } = await axios.get(`${BASE_URL}users/${username}`);
-  console.log(data)
   if (data.user) {
     const { user } = data;
     return user;

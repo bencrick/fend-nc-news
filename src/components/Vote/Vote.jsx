@@ -36,7 +36,6 @@ class Vote extends Component {
       total: Number(this.props.start),
       loading: false
     });
-    console.log(this.state);
   };
 
   alterVote = n => {

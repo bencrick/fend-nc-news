@@ -37,7 +37,6 @@ class Articlewrapper extends Component {
     if (prevProps.article_id !== this.props.article_id) {
       const article = await api.getArticleByID(this.props.article_id);
       const comments = await api.getCommentsByArticleID(this.props.article_id);
-      console.log(this.props, '<--- props');
       await this.setState({
         article,
         comments,

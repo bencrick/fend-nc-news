@@ -33,7 +33,6 @@ class Topiccontent extends Component {
   componentDidMount = async () => {
     const topic = this.props.location.search.slice(7);
     const articles = await api.getArticlesByTopic(topic);
-    console.log(topic)
     this.setState({
       topic,
       articles,
