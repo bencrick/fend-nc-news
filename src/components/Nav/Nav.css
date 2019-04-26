@@ -28,3 +28,11 @@
   text-align: left;
   height: 54vh;
 }
+
+.article-link {
+  font-size: 75%;
+}
+
+.article-row {
+  outline: 1px solid black;
+}
