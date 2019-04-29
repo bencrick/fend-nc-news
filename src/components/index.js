@@ -1,5 +1,3 @@
-import Content from './Old/Content/Content';
-import Topiccontent from './Old/Topiccontent/Topiccontent';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import Home from './Home/Home';
@@ -19,8 +17,6 @@ export {
   Articleblock,
   Commentblock,
   Itemlist,
-  Content,
-  Topiccontent,
   Footer,
   Header,
   Home,
