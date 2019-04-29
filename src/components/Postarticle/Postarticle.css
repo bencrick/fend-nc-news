@@ -1,20 +1,24 @@
 .postarticle {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3em 1fr;
   grid-template-areas:
-    'postarticlehead'
+    'postarticle-title-label postarticle-title-input'
     'postarticlelist';
   outline: 1px solid black;
   height: 100%;
 }
 
-.postarticle-head {
+.postarticle-title-label {
+  grid-area: postarticlehead;
+  outline: solid 1px black;
+}
+.postarticle-title-input {
   grid-area: postarticlehead;
   outline: solid 1px black;
 }
 
-.postarticle-list {
+.postarticle-body-input {
   grid-area: postarticlelist;
   overflow-y: scroll;
   display: block;

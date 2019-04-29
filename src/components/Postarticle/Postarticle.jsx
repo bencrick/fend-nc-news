@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Articleblock from '../Articleblock/Articleblock';
-import Commentblock from '../Commentblock/Commentblock';
 import './Postarticle.css';
-import postArticle from '../../api';
+import { postArticle } from '../../api';
 
 class Postarticle extends Component {
   state = {
@@ -24,9 +22,6 @@ class Postarticle extends Component {
           placeholder="title"
           className="postarticle-title-input"
         />
-        <label for="body" className="postarticle-body-label flex-center">
-          Title:
-        </label>
         <input
           id="body"
           placeholder="body"
@@ -47,11 +42,15 @@ class Postarticle extends Component {
   };
 
   post = async event => {
-    event.preventDefault();
-    const { user, topic } = this.state;
-    const title = this.event.target.title.value;
-    const body = this.event.target.body.value;
-    postArticle(user.username, topic, title, body);
+    if (!this.state.user) {
+      alert('Please log in to enable posting');
+    } else {
+      event.preventDefault();
+      const { user, topic } = this.state;
+      const title = this.event.target.title.value;
+      const body = this.event.target.body.value;
+      postArticle(user.username, topic, title, body);
+    }
   };
 }
 

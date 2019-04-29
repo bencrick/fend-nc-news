@@ -4,6 +4,7 @@ import * as api from '../../api';
 import Itemlist from '../Itemlist/Itemlist';
 import capitalise from '../../utils/capitalise';
 import { Router } from '@reach/router';
+import Postarticle from '../Postarticle/Postarticle';
 
 // select topic-specific articles
 class Topicwrapper extends Component {
@@ -17,21 +18,19 @@ class Topicwrapper extends Component {
     const { topic, topics, user } = this.props;
     return (
       <main className="topicwrapper">
-        <h3 className="topicwrapper-head flex-center">
-          {capitalise(topic)}
-        </h3>
+        <h3 className="topicwrapper-head flex-center">{capitalise(topic)}</h3>
         <div className="topicwrapper-body text-block">
           {topics.length === 0
             ? ''
             : topics.filter(t => t.slug === topic)[0].description}
         </div>
-        <div className="topicwrapper-list">
+        {/* <div className="topicwrapper-list">
           <Itemlist items={articles} user={user} />
-        </div>
-        {/* <Router className="topicwrapper-list">
-          <Itemlist path="/topics/:topic" items={articles} user={user} />
-          <Postarticle path="/topics/:topic/post" user={user} topic={topic} />
-        </Router> */}
+        </div> */}
+        <Router className="topicwrapper-list">
+          <Itemlist path="/" items={articles} user={user} topic={topic} />
+          <Postarticle path="/post" user={user} topic={topic} />
+        </Router>
       </main>
     );
   }
