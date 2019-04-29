@@ -5,19 +5,21 @@ import './Itemlist.css';
 import { Link } from '@reach/router';
 
 const Itemlist = ({ items, user, topic }) => {
-  let headingProp, idProp, Block, listHeading, blocks;
+  let headingProp, idProp, Block, listHeading, postLink, blocks, fullHeader;
 
   if (items.length > 0) {
     if (items[0].title) {
-      listHeading = 'Articles'
+      listHeading = 'Articles';
       headingProp = 'title';
       idProp = 'article_id';
       Block = Articleblock;
+      postLink = <Link to="post">New Article</Link>;
     } else if (items[0].author) {
       listHeading = 'Comments';
       headingProp = 'author';
       idProp = 'comment_id';
       Block = Commentblock;
+      postLink = <Link to="post">New Comment</Link>;
     }
 
     blocks = items.map(item => {
@@ -35,12 +37,20 @@ const Itemlist = ({ items, user, topic }) => {
     blocks = [];
   }
 
+  if (topic) {
+    fullHeader = (
+      <h3>
+        {listHeading} - {postLink}
+      </h3>
+    );
+  } else {
+    fullHeader = <h3>{listHeading}</h3>;
+  }
+
   return (
     <main class="itemlist">
       <h3 className="itemlist-head flex-center">
-        <div>
-          {listHeading} - <Link to="post">New Article</Link>
-        </div>
+        <div>{fullHeader}</div>
       </h3>
       <div className="itemlist-list">{blocks}</div>
     </main>
