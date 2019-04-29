@@ -43,3 +43,16 @@ export const getUserByUsername = async username => {
     return false;
   }
 };
+
+export const voteArticle = async (article_id, incvote) => {
+  await axios.patch(`${BASE_URL}articles/${article_id}`, {
+    inc_votes: incvote
+  });
+};
+
+export const voteComment = async (comment_id, incvote) => {
+  await axios.patch(`${BASE_URL}comments/${comment_id}`, {
+    inc_votes: incvote
+  });
+};
+

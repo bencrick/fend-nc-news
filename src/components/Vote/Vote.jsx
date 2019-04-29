@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Vote.css';
+import { voteArticle, voteComment } from '../../api';
 
 class Vote extends Component {
   state = {
@@ -54,6 +55,11 @@ class Vote extends Component {
         modifier,
         total
       });
+      if (this.props.article_id) {
+        voteArticle(this.props.article_id, n);
+      } else if (this.props.comment_id) {
+        voteComment(this.props.comment_id, n)
+      }
     } else {
       alert('Please log in to enable voting');
     }

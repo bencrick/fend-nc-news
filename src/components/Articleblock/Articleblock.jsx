@@ -10,7 +10,7 @@ const Articleblock = ({ id, heading, body, votes, user }) => {
         <h4 className="articleblock-head flex-center">{heading}</h4>
       </Link>
       <div className="articleblock-vote">
-        <Vote start={votes} user={user} />
+        <Vote start={votes} user={user} article_id={id} />
       </div>
       <div className="articleblock-body text-block">{body}</div>
     </main>
