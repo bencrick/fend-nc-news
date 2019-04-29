@@ -56,3 +56,11 @@ export const voteComment = async (comment_id, incvote) => {
   });
 };
 
+export const postArticle = async (author, topic, title, body) => {
+  await axios.post(`${BASE_URL}articles`, {
+    title,
+    body,
+    topic,
+    author
+  });
+};

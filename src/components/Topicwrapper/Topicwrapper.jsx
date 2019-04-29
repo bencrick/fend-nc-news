@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Topicwrapper.css';
 import * as api from '../../api';
 import Itemlist from '../Itemlist/Itemlist';
-import capitalise from '../../utils/capitalise'
+import capitalise from '../../utils/capitalise';
 
 // select topic-specific articles
 class Topicwrapper extends Component {
@@ -17,7 +17,9 @@ class Topicwrapper extends Component {
       <main className="topicwrapper">
         <h3 className="topicwrapper-head flex-center">{capitalise(topic)}</h3>
         <div className="topicwrapper-body text-block">
-          {topics.length === 0 ? '' : topics.filter(t => t.slug === topic)[0].description}
+          {topics.length === 0
+            ? ''
+            : topics.filter(t => t.slug === topic)[0].description}
         </div>
         <div className="topicwrapper-list">
           <Itemlist items={articles} user={this.props.user} />
