@@ -1,0 +1,22 @@
+.postarticle {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3em 1fr;
+  grid-template-areas:
+    'postarticlehead'
+    'postarticlelist';
+  outline: 1px solid black;
+  height: 100%;
+}
+
+.postarticle-head {
+  grid-area: postarticlehead;
+  outline: solid 1px black;
+}
+
+.postarticle-list {
+  grid-area: postarticlelist;
+  overflow-y: scroll;
+  display: block;
+  outline: solid 1px black;
+}
