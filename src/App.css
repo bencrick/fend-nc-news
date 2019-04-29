@@ -41,10 +41,12 @@
   font-size: 1.5vw;
 }
 
-th, h3 {
+th,
+h3 {
   font-size: 3vw;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 5vw;
 }

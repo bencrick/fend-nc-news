@@ -29,7 +29,7 @@ class Topicwrapper extends Component {
         </div> */}
         <Router className="topicwrapper-list">
           <Itemlist path="/" items={articles} user={user} topic={topic} />
-          <Postarticle path="post" user={user} topic={topic} />
+          <Postarticle path={`/topics/${topic}/post`} user={user} topic={topic} />
         </Router>
       </main>
     );
